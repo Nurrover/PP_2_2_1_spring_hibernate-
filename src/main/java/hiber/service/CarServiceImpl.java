@@ -1,5 +1,6 @@
 package hiber.service;
 
+import hiber.dao.CarDao;
 import hiber.dao.CarDaoImp;
 import hiber.model.Car;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,24 +10,24 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class CarServiceImp implements CarService {
+public class CarServiceImpl implements CarService {
+
+    private final CarDao carDao;
 
     @Autowired
-    private CarDaoImp carDao;
-
-    public CarServiceImp(CarDaoImp carDao) {
+    public CarServiceImpl(CarDaoImp carDao) {
         this.carDao = carDao;
     }
 
     @Transactional
     @Override
-    public void add(Car car) {
-        carDao.add(car);
+    public void addCar(Car car) {
+        carDao.addCar(car);
     }
 
     @Transactional(readOnly = true)
     @Override
-    public List<Car> listCars() {
-        return carDao.listCars();
+    public List<Car> getListCars() {
+        return carDao.getListCars();
     }
 }

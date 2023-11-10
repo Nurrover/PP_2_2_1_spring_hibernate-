@@ -28,18 +28,18 @@ public class MainApp {
       user3.setCar(new Car("model3", 3));
       user4.setCar(new Car("model4", 4));
 
-      userService.add(user1);
-      userService.add(user2);
-      userService.add(user3);
-      userService.add(user4);
+      userService.addUser(user1);
+      userService.addUser(user2);
+      userService.addUser(user3);
+      userService.addUser(user4);
 
-      List<User> users = userService.listUsers();
+      List<User> users = userService.getListUsers();
       for (User user : users) {
          System.out.println(user);
          System.out.println();
       }
 
-      List<Car> cars = carService.listCars();
+      List<Car> cars = carService.getListCars();
       for (Car car : cars) {
          System.out.println(car);
          System.out.println();
